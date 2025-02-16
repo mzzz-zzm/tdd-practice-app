@@ -28,3 +28,14 @@ go clean -cache -modcache -i -r
 cd /workspaces/tdd-practice-app
 go test ./httpserver -timeout 30s -run ^TestGETPlayers$
 ```
+
+## after further investigation
+
+the base image may seem to be the cause of the confliction.
+use:
+`mcr.microsoft.com/devcontainers/base:dev-ubuntu24.04`
+instead of:
+`mcr.microsoft.com/devcontainers/go:1-1.23-bookworm`
+
+Golang is still available with the feature customisation:
+`ghcr.io/devcontainers/features/go`
